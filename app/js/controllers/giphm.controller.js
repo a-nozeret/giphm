@@ -3,7 +3,7 @@
 GiphmController.$inject = ['GiphyService'];
 function GiphmController($scope) {
     var ctrl = this;
-    ctrl.query = 'Adventure time';
+    ctrl.query = 'Drop the mic';
     ctrl.result = '';
     ctrl.MAXGIFS = 10;
     ctrl.reload = getGifs;

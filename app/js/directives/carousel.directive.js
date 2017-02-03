@@ -7,7 +7,6 @@ function CarouselDirective() {
                 //todo handle error
                 if (ctrl.query && data && data.statusText == "OK") {
                     var gifs = data.data.data;
-                    console.log(gifs);
                     element.html('');
                     for (var i = 0; i < ctrl.MAXGIFS; i++) {
                         var downsized_small = gifs[i].images.downsized_small.mp4;
