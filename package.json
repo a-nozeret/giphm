@@ -1,0 +1,25 @@
+{
+  "name": "giphm",
+  "version": "0.1.0",
+  "description": "Just a gif carousel",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm-run-all --parallel dev:*",
+    "dev:bundle": "webpack",
+    "dev:sass-dev": "node-sass --watch app/styles/scss --output-style compressed --source-map true  app/styles/scss --output assets/css",
+    "dev:serve": "webpack-dev-server --progress --inline --output-public-path=/assets/js",
+    "dev:open": "/usr/bin/open -a '/Applications/Google Chrome.app' 'http://localhost:8080/webpack-dev-server/'"
+  },
+  "author": "Antoine Nozeret",
+  "license": "ISC",
+  "devDependencies": {
+    "angular": "^1.6.1",
+    "css-loader": "^0.26.1",
+    "node-sass": "^4.5.0",
+    "npm-run-all": "^4.0.1",
+    "sass-loader": "^4.1.1",
+    "style-loader": "^0.13.1",
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^1.16.3"
+  }
+}

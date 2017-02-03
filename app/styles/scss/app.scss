@@ -1,0 +1,134 @@
+// Core
+@import "core/lib/font-awesome.min";
+@import "core/reset";
+@import "core/variables";
+@import "core/mixins";
+@import "core";
+
+// Components
+
+body {
+
+    height: 100vh;
+    overflow: hidden;
+    background-color: #444444;
+
+
+    .c-header {
+        background-color: $c-neutral__light;
+        text-align: center;
+        padding: 20px 10px 40px;
+        height: 23vw;
+
+        &__title {
+            font-size: 20vw;
+            font-weight: 900;
+        }
+
+        &__sub-title {
+            letter-spacing: 2px;
+            max-width: 62vw;
+            margin: auto;
+            text-align: left;
+            font-size: 3vw;
+            color: #7d7d7d;
+            font-weight: 900;
+            .c-sub-title__img {
+                float: right;
+                max-width: 40%;
+                margin: 4px -6px 0 0;
+            }
+        }
+    }
+
+    .c-main {
+
+        height: calc(100vh - 23vw - 80px);
+
+        .c-main__actions {
+            position: absolute;
+            left: 0;
+            right: 0;
+            z-index: 2;
+            white-space: nowrap;
+            input {
+                background: aquamarine;
+                width: 50%;
+                border: none;
+                height: 30px;
+                line-height: 30px;
+                font-size: 16px;
+                padding: 0 10px;
+                float: left;
+                text-align: center;
+                font-weight: 900;
+                cursor: pointer;
+                color: #757575;
+                &:focus {
+                    color: #5A5A5A;
+                }
+            }
+            .fa-search {
+                margin-left: -30px;
+                line-height: 30px;
+                pointer-events: none;
+                margin-right: 10px;
+                font-size: 20px;
+            }
+
+            .c-query {
+                color: aquamarine;
+                background-color: #212121;
+                width: 50%;
+                display: inline-block;
+                text-align: center;
+                font-weight: 900;
+                line-height: 30px;
+            }
+        }
+
+
+        .c-carousel {
+            white-space: nowrap;
+            height: calc(100% + 30px);
+            overflow-x: scroll;
+            overflow-y: hidden;
+            display: block;
+            -webkit-overflow-scrolling: touch;
+            &::-webkit-scrollbar {
+                display: none;
+            }
+            .c-gif {
+                height: 100%;
+                display: inline-block;
+                position: relative;
+                padding: 2vw;
+
+                & > span {
+                    height: 100%;
+                    vertical-align: middle;
+                    display: inline-block;
+                }
+                & > div {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    z-index: -1;
+                    filter: blur(2px);
+                    background-size: cover;
+                    background-position: center;
+                    opacity: .2;
+                }
+                video {
+                    max-width: 40vw;
+                    width: auto;
+                    height: 20vw;
+                    vertical-align: middle;
+                    display: inline-block;
+                }
+            }
+        }
+    }
+}

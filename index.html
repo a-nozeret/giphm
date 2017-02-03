@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>GIPHM</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link href="https://fonts.googleapis.com/css?family=Rancho|Open+Sans|Droid+Serif" rel="stylesheet">
+        <link rel="stylesheet" href="assets/css/app.css">
+        <script src="assets/js/vendor.bundle.js"></script>
+        <script src="assets/js/app.bundle.js"></script>
+    </head>
+    <body ng-app="giphm" ng-controller="GiphmController as ctrl">
+
+        <header class="c-header">
+            <h1 class="c-header__title">GIPHM</h1>
+            <h2 class="c-header__sub-title">Just a gif carousel <img src="assets/images/PoweredBy_GIPHY.png" alt="Powered by GIPHY" class="c-sub-title__img"></h2>
+        </header>
+
+        <main class="c-main" ng-class="{'loading': !ctrl.result}">
+            <i class="fa fa-cog fa-spin o-loading-icon hidden"></i>
+
+            <div class="c-main__actions">
+                <input type="text" ng-model="ctrl.query" ng-model-options="{ debounce: 800 }" placeholder="QUERY MAN">
+                <i class="fa fa-search"></i>
+                <span class="c-query">{{ctrl.query}}</span>
+            </div>
+
+            <carousel class="c-carousel" result="ctrl.result"></carousel>
+
+        </main>
+
+    </body>
+</html>
