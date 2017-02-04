@@ -6,9 +6,13 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npm-run-all --parallel dev:*",
     "dev:bundle": "webpack",
-    "dev:sass-dev": "node-sass --watch app/styles/scss --output-style compressed --source-map true  app/styles/scss --output assets/css",
+    "dev:sass-dev": "node-sass --watch app/styles/scss --output-style compact --source-map true app/styles/scss --output assets/css",
     "dev:serve": "webpack-dev-server --progress --inline --output-public-path=/assets/js",
-    "dev:open": "/usr/bin/open -a '/Applications/Google Chrome.app' 'http://localhost:8080/webpack-dev-server/'"
+    "dev:open": "/usr/bin/open -a '/Applications/Google Chrome.app' 'http://localhost:8080/webpack-dev-server/'",
+    "prepublish": "npm-run-all build:*",
+    "build:clean": "rm -rf assets/css && rm -rf assets/js",
+    "build:bundle": "webpack",
+    "build:sass-dev": "node-sass app/styles/scss --output-style compressed app/styles/scss --output assets/css"
   },
   "author": "Antoine Nozeret",
   "license": "ISC",

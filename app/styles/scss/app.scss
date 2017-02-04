@@ -137,6 +137,9 @@ body {
                     width: auto;
                     vertical-align: middle;
                     display: inline-block;
+                    @include mobile {
+                        height: auto;
+                    }
                 }
             }
         }
