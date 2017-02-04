@@ -3,6 +3,7 @@
 GiphmController.$inject = ['GiphyService'];
 function GiphmController($scope) {
     var ctrl = this;
+    ctrl.isDesktop = typeof window.orientation === 'undefined';
     ctrl.query = 'Adventure time';
     ctrl.result = '';
     ctrl.MAXGIFS = 10;
