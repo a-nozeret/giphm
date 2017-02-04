@@ -3,8 +3,10 @@ function CarouselDirective() {
         link: function (scope, element, attrs) {
             var ctrl = scope.ctrl;
             scope.$watch('ctrl.result', function (data) {
+                // Watch Results for change, then bind the data
                 //todo handle error
                 if (ctrl.query && data && data.statusText == "OK") {
+                    // Check if response is successful
                     var gifs = data.data.data;
                     element.html('');
                     for (var i = 0; i < gifs.length; i++) {
@@ -23,6 +25,7 @@ function CarouselDirective() {
                 }
             });
             scope.$watch('ctrl.query', function (query) {
+                // Watch Query for change, reload the carousel
                 ctrl.reload(query)
             });
         }
