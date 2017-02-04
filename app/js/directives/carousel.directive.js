@@ -15,7 +15,7 @@ function CarouselDirective() {
                         }
                         else {
                             // Render as .gif for mobile/tablet devices
-                            gif = '<img src="' + gifs[i].images.fixed_height_downsampled.url + '" alt="Result #' + i + '">';
+                            gif = '<img src="' + gifs[i].images.fixed_height.url + '" alt="Result #' + i + '">';
                         }
                         var bgImage = gifs[i].images.fixed_width_small_still.url;
                         element.append('<li class="c-gif"><div style="background-image: url(' + bgImage + ')"></div><span></span> ' + gif + '</li>');

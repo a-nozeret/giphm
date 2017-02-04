@@ -1,0 +1,44 @@
+// Carousel
+.c-carousel {
+    white-space: nowrap;
+    height: calc(100% - 10px);
+    overflow-x: scroll;
+    overflow-y: hidden;
+    display: block;
+    -webkit-overflow-scrolling: touch;
+    .c-gif {
+        height: 100%;
+        display: inline-block;
+        position: relative;
+        padding: 2vw;
+        transform: translate(0);
+
+        & > span {
+            height: 100%;
+            vertical-align: middle;
+            display: inline-block;
+        }
+        & > div {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+            filter: blur(2px);
+            background-size: cover;
+            background-position: center;
+            opacity: .2;
+        }
+        video, img {
+            max-width: 90vw;
+            height: 45vh;
+            width: auto;
+            vertical-align: middle;
+            display: inline-block;
+            @include mobile {
+                height: auto;
+            }
+        }
+    }
+}

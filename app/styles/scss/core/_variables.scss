@@ -21,11 +21,10 @@ $c-primary        : $blueGrey500;
 $c-primary--light : $blueGrey100;
 $c-primary--dark  : $blueGrey700;
 
-// -- Colors / Primary
+// -- Colors / Accent
 $c-accent        : $redA200;
 $c-accent--light : $redA100;
 $c-accent--dark  : $redA400;
-
 
 // -- Fonts --
 $f-fallback--primary : Verdana, Geneva, sans-serif;
@@ -33,4 +32,3 @@ $f-fallback--accent  : Georgia, serif;
 
 $f-primary : 'Open Sans', sans-serif, $f-fallback--primary;
 $f-accent  : 'Droid+Serif', serif, $f-fallback--accent;
-$f-title   : 'Rancho', serif, $f-fallback--accent;

@@ -7,11 +7,7 @@ body {
         clear: both;
         display: table;
     }
-    .loading {
-        & > .o-loading-icon {
-            display: inline-block !important;
-        }
-    }
+
     .hidden {
         display: none;
     }
