@@ -38,6 +38,7 @@
             display: inline-block;
             @include mobile {
                 height: auto;
+                max-height: 45vh;
             }
         }
     }

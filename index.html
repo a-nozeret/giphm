@@ -20,9 +20,10 @@
         <main class="c-main" ng-class="{'loading': !ctrl.result}">
             <i class="fa fa-cog fa-spin o-loading-icon hidden"></i>
 
-            <div class="c-main__actions">
+            <div class="c-main__actions" style="--accent-color: {{ctrl.color}}">
                 <input type="text" ng-model="ctrl.query" ng-model-options="{ debounce: 800 }" placeholder="QUERY MAN">
                 <i class="fa fa-search"></i>
+                <i class="fa fa-refresh" ng-click="ctrl.rollDice()"></i>
                 <span class="c-query">{{ctrl.query}}</span>
             </div>
 

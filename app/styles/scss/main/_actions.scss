@@ -1,9 +1,12 @@
 // Actions bar in main container
 .c-main {
     &__actions {
+        --accent-color: $c-accent;
+
         width: 100vw;
         overflow: hidden;
-        background: $c-accent;
+        background-color: var(--accent-color);
+
         input, .c-query {
             height: 30px;
             line-height: 30px;
@@ -24,16 +27,26 @@
                 color: $c-neutral--light;
             }
         }
-        .fa-search {
+
+        .fa-search, .fa-refresh {
             line-height: 30px;
-            pointer-events: none;
             font-size: 20px;
             position: absolute;
+        }
+
+        .fa-search {
+            pointer-events: none;
             left: calc(50vw - 30px);
         }
 
+        .fa-refresh {
+            cursor: pointer;
+            right: calc(50vw - 30px);
+            color: var(--accent-color);
+        }
+
         .c-query {
-            color: $c-accent;
+            color: var(--accent-color);
             background-color: $c-neutral--dark;
             width: 50vw;
             display: inline-block;
