@@ -9,7 +9,7 @@ body {
     }
     .loading {
         & > .o-loading-icon {
-            display: block !important;
+            display: inline-block !important;
         }
     }
     .hidden {

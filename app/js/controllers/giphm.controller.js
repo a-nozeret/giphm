@@ -3,7 +3,7 @@
 GiphmController.$inject = ['GiphyService'];
 function GiphmController($scope) {
     var ctrl = this;
-    ctrl.query = 'Drop the mic';
+    ctrl.query = 'Adventure time';
     ctrl.result = '';
     ctrl.MAXGIFS = 10;
     ctrl.reload = getGifs;
@@ -12,7 +12,7 @@ function GiphmController($scope) {
 
     function getGifs() {
         var query = formatQuery(ctrl.query);
-        $scope.getRandom(query).then(function(data) {
+        $scope.getRandom(query, ctrl.MAXGIFS).then(function(data) {
             ctrl.result = data;
         });
     }
