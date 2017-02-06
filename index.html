@@ -10,26 +10,14 @@
         <script src="assets/js/vendor.bundle.js"></script>
         <script src="assets/js/app.bundle.js"></script>
     </head>
-    <body ng-app="giphm" ng-controller="GiphmController as ctrl">
+    <body ng-app="giphm">
 
         <header class="c-header">
             <h1 class="c-header__title">GIPHM</h1>
             <h2 class="c-header__sub-title">Just a gif carousel <img src="assets/images/PoweredBy_GIPHY.png" alt="Powered by GIPHY" class="c-sub-title__img"></h2>
         </header>
 
-        <main class="c-main" ng-class="{'loading': !ctrl.result}">
-            <i class="fa fa-cog fa-spin o-loading-icon hidden"></i>
-
-            <div class="c-main__actions" style="--accent-color: {{ctrl.color}}">
-                <input type="text" ng-model="ctrl.query" ng-model-options="{ debounce: 800 }" placeholder="QUERY MAN">
-                <i class="fa fa-search"></i>
-                <i class="fa fa-refresh" ng-click="ctrl.rollDice()"></i>
-                <span class="c-query">{{ctrl.query}}</span>
-            </div>
-
-            <ul carousel class="c-carousel" result="ctrl.result"></ul>
-
-        </main>
+        <carousel class="c-main"></carousel>
 
     </body>
 </html>

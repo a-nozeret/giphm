@@ -1,17 +1,17 @@
 'use strict';
 
-GiphmController.$inject = ['GiphyService'];
-function GiphmController($scope) {
+CarouselController.$inject = ['GiphyService'];
+function CarouselController($scope) {
 
     /// Set base variables and constants ///
-    var ctrl = this;
+    let ctrl = this;
     ctrl.colors     = getShuffledData('colors');
     ctrl.queries    = getShuffledData('queries');
 
     ctrl.isDesktop  = typeof window.orientation === 'undefined';
     ctrl.query      = current('queries');
     ctrl.color      = current('colors');
-    ctrl.result     = '';
+    ctrl.result     = [];
     ctrl.MAXGIFS    = 10;
     ctrl.reload     = getGifs;
     ctrl.next       = nextElement;
@@ -20,11 +20,15 @@ function GiphmController($scope) {
     /// Initialize ///
     getGifs();
 
+    ///
+
     /// Methods ///
     function getGifs() {
-        var query = formatQuery(ctrl.query);
+        let query = formatQuery(ctrl.query);
         $scope.getRandom(query, ctrl.MAXGIFS).then(function(data) {
-            ctrl.result = data;
+            if (data && data.statusText == "OK") {
+                ctrl.result = formatData(data.data.data);
+            }
         });
     }
 
@@ -33,10 +37,32 @@ function GiphmController($scope) {
         return q.replace(/\s+/g, '+')
     }
 
+    function formatData(data) {
+        // Parse response
+        let gifs = [];
+        for (let i = 0; i < data.length; i++) {
+            let gif = {};
+            if (ctrl.isDesktop) {
+                // Render as .mp4 for desktop
+                gif.type = 'mp4';
+                gif.url =  data[i].images.downsized_small.mp4;
+            }
+            else {
+                // Render as .gif for mobile/tablet devices
+                gif.type = 'gif';
+                gif.url =  data[i].images.fixed_height.url;
+            }
+            gif.bgImage = data[i].images.fixed_width_small_still.url;
+            gifs.push(gif);
+        }
+        return gifs
+    }
+
     function rollDice() {
         // Update color and query
         ctrl.query = ctrl.next(ctrl.queries);
         ctrl.color = ctrl.next(ctrl.colors);
+        getGifs();
     }
 
     function nextElement(elements) {
@@ -51,7 +77,7 @@ function GiphmController($scope) {
 
     function getShuffledData(element) {
         // Get data, shuffle it, format it in an object with index for current element
-        var data = require('../data/' + element);
+        let data = require('../data/' + element);
         return {
             data: shuffle(data),
             index: 0
@@ -60,7 +86,7 @@ function GiphmController($scope) {
 
     function shuffle(array) {
         // Taken from: http://stackoverflow.com/a/2450976/7326166
-        var currentIndex = array.length, temporaryValue, randomIndex;
+        let currentIndex = array.length, temporaryValue, randomIndex;
         while (0 !== currentIndex) {
             randomIndex = Math.floor(Math.random() * currentIndex);
             currentIndex -= 1;
@@ -71,7 +97,6 @@ function GiphmController($scope) {
         }
         return array;
     }
-
 }
 
-module.exports = GiphmController;
+module.exports = CarouselController;

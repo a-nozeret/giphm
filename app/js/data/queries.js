@@ -1,5 +1,5 @@
 const QUERIES = [
-    'Artificial Intelligence',
+    'AI',
     'Dance',
     'Disco',
     'Drop the mic',

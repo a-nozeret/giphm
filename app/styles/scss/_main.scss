@@ -2,6 +2,7 @@
 .c-main {
     height: calc(100vh - 23vw - 80px);
     min-height: 50vh;
+    display: block;
 
     .o-loading-icon {
         position: absolute;
