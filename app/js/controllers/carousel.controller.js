@@ -26,7 +26,7 @@ function CarouselController($scope) {
     function getGifs() {
         let query = formatQuery(ctrl.query);
         $scope.getRandom(query, ctrl.MAXGIFS).then(function(data) {
-            if (data && data.statusText == "OK") {
+            if (data && data.status == 200) {
                 ctrl.result = formatData(data.data.data);
             }
         });
